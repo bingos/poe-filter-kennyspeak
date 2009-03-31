@@ -1,0 +1,12 @@
+use strict;
+use inc::Module::Install;
+name 'POE-Filter-KennySpeak';
+author 'Chris Williams <chris@bingosnet.co.uk>';
+version_from 'lib/POE/Filter/KennySpeak.pm';
+abstract_from 'lib/POE/Filter/KennySpeak.pm';
+license 'perl';
+perl_version '5.006';
+build_requires 'Test::More' => 0.47;
+requires 'POE' => 0.38;
+requires 'POE::Filter' => 0;
+WriteAll;
