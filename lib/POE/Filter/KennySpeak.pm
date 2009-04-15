@@ -6,7 +6,7 @@ use warnings;
 use base qw(POE::Filter);
 use vars qw($VERSION);
 
-$VERSION = '0.02';
+$VERSION = '1.00';
 
 my $kenny   = _generateKenny();          # encoding table
 my $dekenny = _generateDeKenny($kenny);  # decoding table
@@ -251,7 +251,7 @@ KennySpeak invented by Kohan Ikin <syneryder@namesuppressed.com>
 
 =head1 LICENSE
 
-Copyright C<(c)> 2008 Chris Williams, Christian Garbs and Alan Eldridge
+Copyright E<copy> 2008 Chris Williams, Christian Garbs and Alan Eldridge
 
 This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 
