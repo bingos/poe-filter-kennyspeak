@@ -1,12 +1,11 @@
 package POE::Filter::KennySpeak;
 
+#ABSTRACT: Mmm PfmPpfMpp Mpfmffpmffmpmpppff fmpmfpmmmfmp fmppffmmmpppfmmpmfmmmfmpmppfmm fmpppf mmmpppmpm mpfpffppfppm PmpmppppppppffmFmmpfmmppmmmpmp
+
 use strict;
 use warnings;
 
 use base qw(POE::Filter);
-use vars qw($VERSION);
-
-$VERSION = '1.00';
 
 my $kenny   = _generateKenny();          # encoding table
 my $dekenny = _generateDeKenny($kenny);  # decoding table
@@ -124,7 +123,7 @@ sub _translate {
     my $out = '';
     if ($dialect) {
         $out .= exists $kenny->{$1} ? $kenny->{$1} : $1 while ($in =~ s/^(.)//);
-    } 
+    }
     else {
         my @chars = split //, $in;
         while (@chars) {
@@ -133,7 +132,7 @@ sub _translate {
                 shift @chars;
                 shift @chars;
                 shift @chars;
-            } 
+            }
 	    else {
                 $out .= shift @chars;
             }
@@ -144,11 +143,10 @@ sub _translate {
 
 
 'Fmpmmmpmfpmp pmfmffpmpmpp Pmpmppppppppffm!';
-__END__
 
 #
 # kenny.pl -- translate from and to KennySpeak
-# 
+#
 # $Revision: 1.7 $
 #
 # Licensed unter the Artistic License:
@@ -160,9 +158,7 @@ __END__
 # KennySpeak invented by Kohan Ikin <syneryder@namesuppressed.com>
 #                        http://www.namesuppressed.com/kenny/
 
-=head1 NAME
-
-POE::Filter::KennySpeak - Mmm PfmPpfMpp Mpfmffpmffmpmpppff fmpmfpmmmfmp fmppffmmmpppfmmpmfmmmfmpmppfmm fmpppf mmmpppmpm mpfpffppfppm PmpmppppppppffmFmmpfmmppmmmpmp
+=pod
 
 =head1 SYNOPSIS
 
@@ -170,13 +166,13 @@ POE::Filter::KennySpeak - Mmm PfmPpfMpp Mpfmffpmffmpmpppff fmpmfpmmmfmp fmppffmm
 
 	use strict;
 	use warnings;
-	
+
 	use POE;
 	use POE::Component::Server::TCP;
 	use POE::Filter::Stackable;
 	use POE::Filter::Line;
 	use POE::Filter::KennySpeak;
-	
+
 	POE::Component::Server::TCP->new(
 	    Port => 12345,
 	    ClientInputFilter => POE::Filter::Stackable->new(
@@ -191,7 +187,7 @@ POE::Filter::KennySpeak - Mmm PfmPpfMpp Mpfmffpmffmpmpppff fmpmfpmmmfmp fmppffmm
 	      return;
 	    },
 	);
-	
+
 	POE::Kernel->run();
 	exit;
 
@@ -237,9 +233,7 @@ Makes a copy of the filter and clears the buffer of the copy.
 
 =back
 
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
+=head1 KUDOS
 
 Based on kenny.pl by:
 
@@ -248,12 +242,6 @@ Alan Eldridge <alane@geeksrus.net>
 
 KennySpeak invented by Kohan Ikin <syneryder@namesuppressed.com>
                        http://www.namesuppressed.com/kenny/
-
-=head1 LICENSE
-
-Copyright E<copy> 2008 Chris Williams, Christian Garbs and Alan Eldridge
-
-This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 
 =head1 SEE ALSO
 
